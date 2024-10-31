@@ -1,0 +1,32 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="myunidadsql" transaction-type="RESOURCE_LOCAL">
+
+        <!--Clases que se van a mapear o crear una tabla del mismo en la Base de datos-->
+        <class>org.example.Model.Usuarios</class>
+        <class>org.example.Model.Proveedor</class>
+        <class>org.example.Model.Productos</class>
+
+        <properties>
+            <!--es el driver que vamos a utilizar-->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <!--esta es la direccion ip o servidor donde va a apuntar en este caso en mi propio pc en modo local-->
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/adaStockControl"/>
+            <!--este es el valor del campo usuario-->
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <!--este es el valor del campo contraseña-->
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <!-- dialecto de Hibernate para MySQL -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <!-- mostrar las consultas SQL en la consola -->
+            <property name="hibernate.show_sql" value="true"/>
+            <!-- Configuración para la generación de esquema de la base de datos -->
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
